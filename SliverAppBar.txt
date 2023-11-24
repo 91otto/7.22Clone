@@ -1,0 +1,55 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: MyHomePage(),
+    );
+  }
+}
+
+class MyHomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: Container(
+              height: 44.0, // 调整高度
+              color: Colors.white, // 调整颜色
+              child: const Center(
+                child: Text('This is a placeholder'),
+              ),
+            ),
+          ),
+          SliverAppBar(
+            floating: true, // 随滚动而浮动
+            pinned: false, // 不固定在顶部
+            flexibleSpace: FlexibleSpaceBar(
+              background: Image.asset(
+                'assets/head_pic.png',
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildBuilderDelegate(
+              (BuildContext context, int index) {
+                return ListTile(
+                  title: Text('Item $index'),
+                );
+              },
+              childCount: 20,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
