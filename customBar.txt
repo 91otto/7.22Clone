@@ -1,0 +1,101 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: MyHomePage(),
+    );
+  }
+}
+
+class MyHomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        // 自定义返回按钮
+        leading: IconButton(
+          icon: Image.asset(
+            "assets/left_arrow.png",
+            height: 30,
+            width: 30,
+          ),
+          onPressed: () {
+            // 点击返回按钮时的操作
+            Navigator.of(context).pop();
+          },
+        ),
+        // 自定义背景颜色
+        backgroundColor: Colors.blue,
+        // 自定义高度
+        toolbarHeight: 80.0,
+        // AppBar标题
+        title: const Text('Your Centered Title'),
+        // AppBar右侧的操作按钮
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Container(
+              height: 200.0,
+              color: Colors.blue,
+              child: Center(
+                child: Text('Header Section'),
+              ),
+            ),
+            Container(
+              height: 200.0,
+              color: Colors.blue,
+              child: Center(
+                child: Text('Header Section'),
+              ),
+            ),
+            Container(
+              height: 200.0,
+              color: Colors.blue,
+              child: Center(
+                child: Text('Header Section'),
+              ),
+            ),
+            Container(
+              height: 200.0,
+              color: Colors.blue,
+              child: Center(
+                child: Text('Header Section'),
+              ),
+            ),            Container(
+              height: 200.0,
+              color: Colors.red,
+              child: Center(
+                child: Text('Header Section'),
+              ),
+            ),            Container(
+              height: 200.0,
+              color: Colors.yellow,
+              child: Center(
+                child: Text('Header Section'),
+              ),
+            ),
+
+
+            // Your scrollable content goes here
+            ListTile(
+              title: Text('Item 1'),
+            ),
+            ListTile(
+              title: Text('Item 2'),
+            ),
+            // ... more items
+          ],
+        ),
+      ),
+    );
+  }
+}
